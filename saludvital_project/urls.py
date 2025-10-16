@@ -15,25 +15,31 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+# saludvital_project/urls.py
+
+# saludvital_project/urls.py
+
 from django.contrib import admin
 from django.urls import path, include
-from drf_spectacular.views import SpectacularAPIView
-from drf_spectacular_sidecar.views import SpectacularSwaggerView, SpectacularRedocView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 urlpatterns = [
-    # Admin
+    # Panel de administración
     path('admin/', admin.site.urls),
 
-    # Endpoints de tu app
+    # Rutas de tu app principal
     path('api/', include('api_saludvital.urls')),
 
-    # Esquema OpenAPI
+    # Esquema de la API
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-
-    # Documentación
-    path('api/docs/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api/docs/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
+
+
+
+
+
 
 
 
