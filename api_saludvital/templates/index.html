@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Inicio - Salud Vital
+{% endblock %}
+
+{% block content %}
+<h1>Bienvenido a Salud Vital</h1>
+<p>Este es el sistema de gestión de pacientes, médicos, consultas y recetas.</p>
+
+<ul>
+    <li><a href="{% url 'pacientes_listar' %}">Pacientes</a></li>
+    <li><a href="{% url 'medicos_listar' %}">Médicos</a></li>
+    <li><a href="{% url 'especialidades_listar' %}">Especialidades</a></li>
+    <li><a href="{% url 'consultas_listar' %}">Consultas Médicas</a></li>
+    <li><a href="{% url 'tratamientos_listar' %}">Tratamientos</a></li>
+    <li><a href="{% url 'medicamentos_listar' %}">Medicamentos</a></li>
+    <li><a href="{% url 'recetas_listar' %}">Recetas Médicas</a></li>
+</ul>
+{% endblock %}
