@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Paciente, Medico, Especialidad, ConsultaMedica, Tratamiento, Medicamento, RecetaMedica
-from .forms import PacienteForm, MedicoForm, EspecialidadForm, ConsultaMedicaForm, TratamientoForm, MedicamentoForm, RecetaMedicaForm
+from .forms import (
+    PacienteForm, MedicoForm, EspecialidadForm,
+    ConsultaMedicaForm, TratamientoForm,
+    MedicamentoForm, RecetaMedicaForm
+)
 
 # -----------------------------
 # PACIENTES
@@ -196,3 +200,10 @@ def eliminar_receta(request, id):
     receta = get_object_or_404(RecetaMedica, id=id)
     receta.delete()
     return redirect('recetas_listar')
+
+
+# -----------------------------
+# INDEX
+# -----------------------------
+def index(request):
+    return render(request, 'index.html')

@@ -3,10 +3,10 @@
 
 {% block content %}
 <h2>Editar Médico</h2>
-<form method="post">
+<form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-success">Actualizar</button>
-    <a href="{% url 'medicos_listar' %}" class="btn btn-secondary">Volver</a>
+    <a href="{% url 'medicos_listar' %}" class="btn btn-secondary">Cancelar</a>
 </form>
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Eliminar Consulta{% endblock %}
+
+{% block content %}
+<h2>¿Estás seguro de que deseas eliminar esta consulta?</h2>
+<p><strong>Paciente:</strong> {{ consulta.paciente.nombre }}</p>
+<p><strong>Médico:</strong> {{ consulta.medico.nombre }}</p>
+<p><strong>Fecha:</strong> {{ consulta.fecha }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Eliminar</button>
+  <a href="{% url 'listar_consultas' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

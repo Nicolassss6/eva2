@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Crear Médico{% endblock %}
+{% block title %}Crear Especialidad{% endblock %}
 
 {% block content %}
-<h2>Crear Médico</h2>
+<h2>Crear Especialidad</h2>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-success">Guardar</button>
-    <a href="{% url 'medicos_listar' %}" class="btn btn-secondary">Cancelar</a>
+    <a href="{% url 'especialidades_listar' %}" class="btn btn-secondary">Cancelar</a>
 </form>
 {% endblock %}
