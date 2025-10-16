@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Listado de Consultas{% endblock %}
+{% block content %}
+<h2>Consultas Médicas</h2>
+<a href="{% url 'crear_consulta' %}" class="btn btn-primary mb-2">Crear Consulta</a>
+<table class="table table-bordered">
+<tr>
+<th>ID</th>
+<th>Paciente</th>
+<th>Médico</th>
+<th>Estado</th>
+<th>Acciones</th>
+</tr>
+{% for c in consultas %}
+<tr>
+<td>{{ c.id }}</td>
+<td>{{ c.paciente }}</td>
+<td>{{ c.medico }}</td>
+<td>{{ c.estado }}</td>
+<td>
+<a href="{% url 'editar_consulta' c.id %}" class="btn btn-warning btn-sm">Editar</a>
+<a href="{% url 'eliminar_consulta' c.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
